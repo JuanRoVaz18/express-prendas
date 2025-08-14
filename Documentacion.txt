@@ -1,0 +1,52 @@
+# Inicializar un nuevo proyecto de Node.js
+npm init -y
+
+# Instalar dependencias necesarias
+npm install express sequelize mysql2 ejs
+
+# Instalar dependencias de desarrollo para nodemon
+npm install -D nodemon
+
+# Instalar Sequelize CLI
+npm install --save sequelize-cli
+
+# Iniciar 
+sequelize init
+
+Esto no
+(
+sequelize model:create --name Usuario --attributes nombre:string,email:string,edad:integer
+sequelize model:create --name Prenda --attributes nombrePrenda:string,url:string,valor:float,usuario:string,categoria:string
+sequelize model:create --name Categoria --attributes nombre:string
+sequelize model:create --name Comentario --attributes texto:string,fecha:date,usuario:string
+)
+
+sequelize db:migrate
+sequelize db:seed:all
+npm run dev
+
+O, si no usas nodemon:
+$env:PORT = 3000; npm start
+
+Usuarios:
+Obtener todos los usuarios: GET /api/usuarios/get/
+Obtener un usuario por ID: GET /api/usuarios/get/1
+Crear un nuevo usuario: POST /api/usuarios/post
+Actualizar un usuario por ID: PUT /api/usuarios/put/1
+Eliminar un usuario por ID: DELETE /api/usuarios/delete/1
+
+Prendas:
+Obtener todas las prendas: GET /api/prendas/get/
+Obtener una prenda por ID: GET /api/prendas/get/1
+Crear una nueva prenda: POST /api/prendas/post
+Actualizar una prenda por ID: PUT /api/prendas/put/1
+Eliminar una prenda por ID: DELETE /api/prendas/delete/1
+
+Respuestas de la API
+200 OK: Se devuelve la solicitud con éxito.
+201 Created: Se crea un nuevo recurso (usuario o prenda).
+400 Bad Request: Los datos enviados no son válidos.
+404 Not Found: El recurso solicitado no fue encontrado (usuario o prenda no existen).
+500 Internal Server Error: Error en el servidor al procesar la solicitud.
+
+
